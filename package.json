@@ -1,0 +1,23 @@
+{
+  "name": "hackry",
+  "version": "0.0.0",
+  "description": "Hackry API wrapper",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HackryHQ/Hackry-Node.git"
+  },
+  "keywords": [
+    "Hackry",
+    "hackathons",
+    "api"
+  ],
+  "author": "Hackry <support@hackry.io> (https://hackry.io)",
+  "contributors": [
+    "Jack Mousseau <jack@hackry.io>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HackryHQ/Hackry-Node/issues"
+  },
+  "homepage": "https://github.com/HackryHQ/Hackry-Node#readme"
+}
