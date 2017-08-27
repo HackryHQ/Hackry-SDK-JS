@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HackryHQ/Hackry-Node.git"
+    "url": "git+https://github.com/HackryHQ/Hackry-SDK-JS.git"
   },
   "keywords": [
     "Hackry",
@@ -24,9 +24,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/HackryHQ/Hackry-Node/issues"
+    "url": "https://github.com/HackryHQ/Hackry-SDK-JS/issues"
   },
-  "homepage": "https://github.com/HackryHQ/Hackry-Node#readme",
+  "homepage": "https://github.com/HackryHQ/Hackry-SDK-JS#readme",
   "devDependencies": {
     "uglify-es": "^3.0.28"
   }
