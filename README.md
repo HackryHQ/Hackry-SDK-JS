@@ -13,7 +13,7 @@ To better understand the contents each response, see the
 
 Add the script tag:
 ```html
-<script src="https://unpkg.com/hackry/hackry.min.js"></script>
+<script src="https://unpkg.com/hackry@latest/hackry.min.js"></script>
 ```
 
 Although this library is built for client-side use, it may be used server-side
@@ -72,7 +72,7 @@ asked questions. Start by pulling down some data. Make sure to replace
   <head>
     <meta charset="utf-8">
     <title>My Hackathon</title>
-    <script src="https://unpkg.com/hackry/hackry.min.js"></script>
+    <script src="https://unpkg.com/hackry@latest/hackry.min.js"></script>
   </head>
   <body>
     <script>
@@ -95,7 +95,7 @@ webpage in a nested list.
   <head>
     <meta charset="utf-8">
     <title>My Hackathon</title>
-    <script src="https://unpkg.com/hackry/hackry.min.js"></script>
+    <script src="https://unpkg.com/hackry@latest/hackry.min.js"></script>
   </head>
   <body>
     <script>
