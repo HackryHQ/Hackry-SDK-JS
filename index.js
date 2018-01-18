@@ -1,7 +1,11 @@
-const API_URL = 'https://api.hackry.io/v1';
-const DASHBOARD_URL = 'https://dashboard.hackry.io';
-
 class Hackry {
+  static urls() {
+    return {
+      api: 'https://api.hackry.io/v1',
+      dashboard: 'https://dashboard.hackry.io'
+    };
+  }
+
   static error(message) {
     console.log('Hackry: ' + message);
   }
@@ -19,10 +23,12 @@ class Hackry {
   }
 
   registrationURL() {
+    const DASHBOARD_URL = Hackry.urls().dashboard;
     return DASHBOARD_URL + '/register?hackathonId=' + this.hackathonId;
   }
 
   getResource(resource, completion) {
+    const API_URL = Hackry.urls().api;
     const url = [API_URL, 'hackathons', this.hackathonId, resource].join('/');
 
     if (this.options.cache && this.cache[resource]) {
