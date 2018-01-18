@@ -1,4 +1,5 @@
-const BASE_URL = 'https://api.hackry.io/v1';
+const API_URL = 'https://api.hackry.io/v1';
+const DASHBOARD_URL = 'https://dashboard.hackry.io';
 
 class Hackry {
   static error(message) {
@@ -17,8 +18,12 @@ class Hackry {
     };
   }
 
+  registrationURL() {
+    return DASHBOARD_URL + '/register?hackathonId=' + this.hackathonId;
+  }
+
   getResource(resource, completion) {
-    const url = [BASE_URL, 'hackathons', this.hackathonId, resource].join('/');
+    const url = [API_URL, 'hackathons', this.hackathonId, resource].join('/');
 
     if (this.options.cache && this.cache[resource]) {
       return completion(this.cache[resource]);

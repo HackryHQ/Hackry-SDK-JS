@@ -30,8 +30,10 @@ section of the dashboard.
 const hackry = new Hackry('<hackathon-id>', {
   cache: false // Defaults to true. Set to false for server-side use.
 });
-```
 
+// Get the attendee registration URL for your hackathon.
+hackry.registrationURL();
+```
 All hackathon resources have a corresponding method for fetching. Some methods
 will sort resources to guarantee ordering. Many resources contain dates and we
 recommend using [Moment.js](http://momentjs.com) for displaying and manipulating
