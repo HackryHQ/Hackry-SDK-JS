@@ -1,6 +1,6 @@
 {
   "name": "hackry",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Hackry API wrapper",
   "scripts": {
     "build": "uglifyjs --compress --mangle -- hackry.js > hackry.min.js && babel hackry.js > index.js"
