@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "description": "Hackry API wrapper",
   "scripts": {
-    "build": "uglifyjs --compress --mangle -- index.js > hackry.min.js"
+    "build": "uglifyjs --compress --mangle -- hackry.js > hackry.min.js && babel hackry.js > index.js"
   },
   "main": "index.js",
   "files": [
@@ -28,6 +28,8 @@
   },
   "homepage": "https://github.com/HackryHQ/Hackry-SDK-JS#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "uglify-es": "^3.0.28"
   }
 }
