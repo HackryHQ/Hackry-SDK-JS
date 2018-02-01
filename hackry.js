@@ -27,6 +27,10 @@ class Hackry {
     return DASHBOARD_URL + '/register?hackathonId=' + this.hackathonId;
   }
 
+  getTimeZone() {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone;
+  }
+
   getResource(resource, completion) {
     const API_URL = Hackry.urls().api;
     const url = [API_URL, 'hackathons', this.hackathonId, resource].join('/');
@@ -48,8 +52,23 @@ class Hackry {
     });
   }
 
-  announcements(completion) {
-    this.getResource('announcements/visible', function(data) {
+  announcements(opts, completion) {
+    if (!completion) {
+      completion = opts;
+    }
+
+    let url = 'announcements/visible';
+    try {
+      url = url + '?timeZone=' + this.getTimeZone();
+
+      if (opts.updatedAtFormat) {
+        url = url + '&updatedAtFormat=' + opts.updatedAtFormat
+      }
+    } catch (error) {
+      Hackry.error(error.message);
+    }
+
+    this.getResource(url, function(data) {
       return completion(data.announcements.sort(function(lhs, rhs) {
         return Date.parse(lhs.updatedAt) < Date.parse(rhs.updatedAt) ? -1 : 1;
       }));
@@ -62,8 +81,27 @@ class Hackry {
     });
   }
 
-  events(completion) {
-    this.getResource('events/visible', function(data) {
+  events(opts, completion) {
+    if (!completion) {
+      completion = opts;
+    }
+
+    let url = 'events/visible';
+    try {
+      url = url + '?timeZone=' + this.getTimeZone();
+
+      if (opts.startDateFormat) {
+        url = url + '&startDateFormat=' + opts.startDateFormat
+      }
+
+      if (opts.endDateFormat) {
+        url = url + '&endDateFormat=' + opts.endDateFormat
+      }
+    } catch (error) {
+      Hackry.error(error.message);
+    }
+
+    this.getResource(url, function(data) {
       return completion(data.events.sort(function(lhs, rhs) {
         return Date.parse(lhs.startDate) < Date.parse(rhs.endDate) ? -1 : 1;
       }));

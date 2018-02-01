@@ -35,28 +35,53 @@ const hackry = new Hackry('<hackathon-id>', {
 hackry.registrationURL();
 ```
 All hackathon resources have a corresponding method for fetching. Some methods
-will sort resources to guarantee ordering. Many resources contain dates and we
-recommend using [Moment.js](http://momentjs.com) for displaying and manipulating
-dates.
+will sort resources to guarantee ordering. The `announcements` and `events`
+methods take an optional options parameter that allows you to format their
+date response properties according to a
+[Moment.js format string](https://momentjs.com/docs/#/displaying/format/).
 
+#### Announcements
+Sorted by `updatedAt` in ascending order.
 ```js
-// Announcements - sorted by `updatedAt` in ascending order
 hackry.announcements(function(announcements) {
 
 });
 
-// Day of Contacts - not sorted
+// Format updatedAt property with Moment.js format string.
+hackry.announcements({
+  updatedAt: 'dddd h:mm a'
+}, function(announcements) {
+
+});
+```
+
+#### Day of Contacts
+Not sorted.
+```js
 hackry.dayOfContacts(function(dayOfContacts) {
 
 });
+```
 
-// Events - sorted by `startDate` in ascending order
+#### Events
+Sorted by `startDate` in ascending order.
+```js
 hackry.events(function(events) {
 
 });
 
+// Format startDate and/or endDate properties with Moment.js format strings.
+hackry.events({
+  startDate: 'dddd h:mm a',
+  endDate: 'h:mm a'
+}, function(events) {
 
-// FAQs - sorted by `position` in ascending order
+});
+```
+
+#### FAQs
+Sorted by `position` in ascending order
+```js
 hackry.faqs(function(faqs) {
 
 });
