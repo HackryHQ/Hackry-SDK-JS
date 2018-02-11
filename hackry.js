@@ -59,7 +59,7 @@ class Hackry {
 
     let url = 'announcements/visible';
     try {
-      url = url + '?timeZone=' + this.getTimeZone();
+      url = url + '?timeZone=' + (opts.timeZone || this.getTimeZone());
 
       if (opts.updatedAtFormat) {
         url = url + '&updatedAtFormat=' + opts.updatedAtFormat
@@ -88,7 +88,7 @@ class Hackry {
 
     let url = 'events/visible';
     try {
-      url = url + '?timeZone=' + this.getTimeZone();
+      url = url + '?timeZone=' + (opts.timeZone || this.getTimeZone());
 
       if (opts.startDateFormat) {
         url = url + '&startDateFormat=' + opts.startDateFormat

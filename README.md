@@ -35,10 +35,17 @@ const hackry = new Hackry('<hackathon-id>', {
 hackry.registrationURL();
 ```
 All hackathon resources have a corresponding method for fetching. Some methods
-will sort resources to guarantee ordering. The `announcements` and `events`
-methods take an optional options parameter that allows you to format their
-date response properties according to a
-[Moment.js format string](https://momentjs.com/docs/#/displaying/format/).
+will sort resources to guarantee ordering.
+
+The `announcements` and `events` methods take an optional options parameter that
+allows you to format their date response properties according to a
+[Moment.js format string](https://momentjs.com/docs/#/displaying/format/). If a
+`timeZone` is not specified, the package will fall back to
+`Intl.DateTimeFormat().resolvedOptions().timeZone`, which is not supported by
+all browsers. Keep in mind this will format dates for **that user's local time
+zone**, so explicity providing a time zone is recommended. If no time zone is
+provided and one can not be determined, the formatted date properties will not
+be populated in the response.
 
 #### Announcements
 Sorted by `updatedAt` in ascending order.
@@ -49,6 +56,7 @@ hackry.announcements(function(announcements) {
 
 // Format updatedAt property with Moment.js format string.
 hackry.announcements({
+  timeZone: 'America/New_York',
   updatedAt: 'dddd h:mm a'
 }, function(announcements) {
 
@@ -72,6 +80,7 @@ hackry.events(function(events) {
 
 // Format startDate and/or endDate properties with Moment.js format strings.
 hackry.events({
+  timeZone: 'America/New_York',
   startDate: 'dddd h:mm a',
   endDate: 'h:mm a'
 }, function(events) {
