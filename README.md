@@ -57,9 +57,9 @@ hackry.announcements(function(announcements) {
 // Format updatedAt property with Moment.js format string.
 hackry.announcements({
   timeZone: 'America/New_York',
-  updatedAt: 'dddd h:mm a'
+  updatedAtFormat: 'dddd h:mm a'
 }, function(announcements) {
-
+  // Each announcement now has updatedAtFormatted property.
 });
 ```
 
@@ -81,10 +81,10 @@ hackry.events(function(events) {
 // Format startDate and/or endDate properties with Moment.js format strings.
 hackry.events({
   timeZone: 'America/New_York',
-  startDate: 'dddd h:mm a',
-  endDate: 'h:mm a'
+  startDateFormat: 'dddd h:mm a',
+  endDateFormat: 'h:mm a'
 }, function(events) {
-
+  // Each event now has startDateFormatted and endDateFormatted properties.
 });
 ```
 
