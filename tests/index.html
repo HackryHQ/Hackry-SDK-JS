@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Hackathon</title>
+    <script src="/Users/jack/code/hackry-sdk-js/dist/hackry.min.js"></script>
+  </head>
+  <body>
+    <script>
+    console.log(Hackry);
+const hackry = new Hackry('NQZBtoIMDJ');
+
+hackry.faqs(function(err, faqs) {
+  const faqsElement = document.getElementById('faqs');
+
+  faqs.forEach(function(faq) {
+    // Create a nested list of questions and answers
+    const question = document.createElement('li');
+    question.appendChild(document.createTextNode(faq.question));
+
+    const nestedAnswer = document.createElement('ul');
+    const answer = document.createElement('ul');
+    answer.appendChild(document.createTextNode(faq.answer));
+    nestedAnswer.appendChild(answer);
+
+    question.appendChild(answer);
+    faqsElement.appendChild(question);
+  });
+});
+</script>
+    <h3>Frequently Asked Questions</h3>
+    <ul id="faqs"></ul>
+  </body>
+</html>

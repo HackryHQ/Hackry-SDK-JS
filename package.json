@@ -3,36 +3,40 @@
   "version": "1.3.1",
   "description": "Hackry API wrapper",
   "scripts": {
-    "build": "uglifyjs --compress --mangle -- hackry.js > hackry.min.js && babel hackry.js > index.js"
+    "build": "rm -rf dist/ && webpack",
+    "test": "nyc --reporter=html mocha \"tests/**/*.test.js\""
+  },
+  "nyc": {
+    "exclude": ["tests/**"]
   },
   "main": "index.js",
-  "files": [
-    "hackry.min.js"
-  ],
+  "unpkg": "dist/hackry.min.js",
+  "files": ["dist/"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HackryHQ/Hackry-SDK-JS.git"
   },
-  "keywords": [
-    "Hackry",
-    "hackathons",
-    "api"
-  ],
+  "keywords": ["Hackry", "hackathons", "api"],
   "author": "Hackry <support@hackry.io> (https://hackry.io)",
-  "contributors": [
-    "Jack Mousseau <jack@hackry.io>"
-  ],
+  "contributors": ["Jack Mousseau <jack@hackry.io>"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/HackryHQ/Hackry-SDK-JS/issues"
   },
   "homepage": "https://github.com/HackryHQ/Hackry-SDK-JS#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
     "eslint": "^4.18.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
-    "uglify-es": "^3.0.28"
+    "mocha": "^5.0.1",
+    "nock": "^9.2.3",
+    "nyc": "^11.4.1",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.10"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
   }
 }
