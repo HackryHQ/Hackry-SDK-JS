@@ -1,1 +1,1 @@
-module.exports = require('./src/hackry');
+module.exports = require('./dist/hackry');
