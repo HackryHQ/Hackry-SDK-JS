@@ -1,10 +1,14 @@
 # Hackry JavaScript Library
+![Build Status][build]
+![Coverage Status][coverage]
 
-The Hackry JavaScript library wraps the [Hackry](https://hackry.io) REST API. No
-secrets or other credentials are ever exchanged using this library since all API
-endpoints interfaced are public.
+The Hackry JavaScript Library wraps the [Hackry](https://hackry.io) REST API for
+server-side and client-side use. No secrets or other credentials are ever
+exchanged using this library since all API endpoints interfaced are public.
 
-To better understand the API requests, see the [Hackry API Docs][docs].
+## Documentation
+
+See the [Hackry REST API Docs][docs].
 
 ## Installation
 Using npm:
@@ -97,4 +101,6 @@ enabled visibility/availability will be delivered.
 
 Please send any questions or feature requests to <mailto:support@hackry.io>.
 
+[build]: https://img.shields.io/travis/HackryHQ/Hackry-SDK-JS.svg
+[coverage]: https://img.shields.io/codecov/c/github/HackryHQ/Hackry-SDK-JS.svg
 [docs]: https://hackry.io/docs
